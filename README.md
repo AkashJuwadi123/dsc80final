@@ -1,6 +1,6 @@
 #  Does the number of steps and ingredients effect the average rating of the recipes?
 
-by Akash Juwadi (ajuwadi@ucsd.edu)
+by Akash Juwadi (ajuwadi@ucsd.edu) temp
 
 ---
 
