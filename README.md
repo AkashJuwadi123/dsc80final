@@ -1,16 +1,16 @@
-#  Does the number of steps and ingredients effect the average rating of the recipes?
+# How long does it take to cook a recipe?
 
 by Akash Juwadi (ajuwadi@ucsd.edu) temp
 
 ---
 
-## Introduction
+## Framing the Problem
 
-The goal of this project is to solve the main question of whether of not the number of steps and ingredients effects the average rating of the recipes? In order to do this we will be using the recipes dataset which contains various different recipes and information about the different recipes.This question is interesting to look at as its shows whether recipes that take a long time to prepare, and have a large number of steps and ingredients effects overall rating of a dish. As such knowing this this would allow for people to make better use of their time and allow them to make the proper plans. The main columns from the dataset that I will be focusing on will be cooking time which is the length of time it takes to prepare a recipe, the number of ingredients in the recipe, the number of steps, and average rating of each dish. 
+The goal of this analysis is to answer the main question of how long it takes to cook a recipe. In order to preform this analysis we must first start by cleaning the data. The data cleaning process is the same the process presented in project three and the link to the exploratory data analysis can be found [here](https://akashjuwadi123.github.io/dsc80final/). The prediction problem of this datatset is how it takes for a recipe to cook. In order to order to figure this out we willl split the recipes into two groups with those having a cooking time of less than 40 minutes being considered short and those with a cooking time of 40 minutes or more being considered short. As such we would be using s classifirer or more specifally a binary classifier for this problem. The variable we will be preditdting will be wether or note the recipe has a long or short cooking time and the analysis metric for the model will be accuracy as it can be quickly compared in ordered to determine the efficacy of the model. 
 
 ---
 
-## Cleaning and EDA
+## Baseline Model
 
 The process of cleaning the data first started with getting the two separate datasets and merging them together into 1 dataframe. After megring them the next step was to replace all ratings of 0 with np.nan as 0 ment there were no ratings. After that the final steps of the data cleaning process was to split up the nutrition column into all of its separate parts and make those into new colunms.
 
@@ -31,7 +31,7 @@ The next table contains an interesting aggregate which is the number of ingredie
 
 ---
 
-## Assessment of Missingness
+## Final Model
 
 The first thing to look at for the missingness is whether the data is NMAR. After looking the data I beleive that the ratings column in the dataset is not NMAR as there are over 2000 entries missing from it. This is beacuse the data is missing when it has no ratings and as such there may be a common correlation between the data and as such we can look it the other columns in greater depth to confirm whether the data is NMAR.
 
@@ -54,7 +54,7 @@ The next graph shows the distribution for the missingness of rating when compare
 
 ---
 
-## Hypothesis Testing
+## Fairness Analysis
 
 
 The next thing is we will preform a hypothesis test in order to determine whether the number of steps truly has an effect on the average rating of a recipe. This will be done in order to answer the main question of this analysis. Does the number of steps effect the average rating of the recipes?Our null hypothsis is that the number of steps does not effect the average rating of the recipe, while our alternate hypothesis is that the number steps does effect the average rating of the recipe. The choice of test statistic will be the mean of the average ratings and the significance level will be .01.After running the test we would get a p-val of approxiamately 0.85 which would be greater than our significance value of 0.1. As such we would fail to reject null hypothesis and instead keep it, which is that the number of steps in a recipe would not effect its average rating. These choices hypothesis and test statistic were chosen as they are able to provide a good approimation for the data and allow for an easy analysis to see if the number if steps truly affects the average ratings of the outcome.
