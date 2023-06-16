@@ -1,6 +1,6 @@
 # How long does it take to cook a recipe?
 
-by Akash Juwadi (ajuwadi@ucsd.edu) temp
+by Akash Juwadi (ajuwadi@ucsd.edu)
 
 ---
 
