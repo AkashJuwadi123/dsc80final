@@ -19,23 +19,7 @@ The first thing we do in order to determine whether the cooking time of the inpu
 
 ## Final Model
 
-The first thing to look at for the missingness is whether the data is NMAR. After looking the data I beleive that the ratings column in the dataset is not NMAR as there are over 2000 entries missing from it. This is beacuse the data is missing when it has no ratings and as such there may be a common correlation between the data and as such we can look it the other columns in greater depth to confirm whether the data is NMAR.
-
-The first graph is for the missingness of rating when compared with the minutes column and the graph shows the distribution of the data.
-
-<iframe src="assets/min_med.html" width=800 height=600 frameBorder=0></iframe>
-
-The next graph shows the distribution for the missingness of rating when compared with the minutes column and shows the TVDs after preforming the test. From the resulting graph and p-val we are able to conclude that the data is NMAR when comparing these two columns as the p-val is less than the signifance level and we can reject the null of the data being MAR.
-
-<iframe src="assets/dist_min.html" width=800 height=600 frameBorder=0></iframe>
-
-This graph is for the missingness of rating when compared with the protien column and the graph shows the distribution of the data.
-
-<iframe src="assets/protein.html" width=800 height=600 frameBorder=0></iframe>
-
-The next graph shows the distribution for the missingness of rating when compared with the minutes column and shows the TVDs after preforming the test. From the resulting graph and p-val we are able to conclude that the data is MAR when comparing these two columns as the p-val is greater than the signifance level and we can accept the null of the data being MAR.
-
-<iframe src="assets/file-name.html" width=800 height=600 frameBorder=0></iframe>
+The first thing we do in order to improve our model is by adding two new transformed columns to it. The columns that I choose to assess were the calories and the rating columns. I choose to add these columns as they seemed to have a connection and could provide addditional insight into how long it would take for a recipe to be produced, as cooking having a higher rating could mean cooking for less time or a meal with more coalories could take longer to prepare. However in roder to better work with them the data first had to be transformed to be more workable. This was done by passing calories through a normalizer to make the data easier to work with as well as rating through an imputer in order to better show the spread of each rating overall. In order to decide what hyperparameters to use I decided to use a grid search Cv in order to fit the data to determine the best possible vals to use for my calcuation. After running this it was then I choose to use those two variables for my final model. Overall my final model is a large step up compared to the previous base model as the accuracy as gone by by around 28% showing that we are able to predict whether or not a recipe takes a lot of time.
 
 
 ---
